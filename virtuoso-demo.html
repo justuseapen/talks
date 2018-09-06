@@ -1,0 +1,375 @@
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One" rel="stylesheet">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/simple.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/virtuoso.css">
+
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-background-image='images/virtuoso-mozart.jpg'>
+        </section>
+
+        <section>
+          <a href='https://github.com/justuseapen/virtuoso'>github.com/justuseapen/virtuoso/</a>
+        </section>
+
+        <section>
+          <section>
+            <h3>
+              Who Am I
+            </h3>
+          </section>
+
+          <section>
+            <img src='images/portrait-md.jpg' style='height:250px;'/>
+            <h3>
+              Justus Eapen
+            </h3>
+            <p>
+              Developer @
+            </p>
+            <img src='images/sl-logo.jpg'/>
+          </section>
+
+          <section>
+            <iframe src="https://giphy.com/embed/l3q2VlU5v5daLD6I8" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p style="font-size:10px"><a href="https://giphy.com/gifs/soundfly-brooklyn-homies-soundfly-l3q2VlU5v5daLD6I8"></a></p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>Why?</h1>
+            Why Chatbots?
+            Why another framework?
+            Why in Elixir?
+          </section>
+          <section data-background-image='images/creation-of-adam.jpg'>
+          </section>
+
+          <section>
+            <h2>Of such poetry is consciousness made.</h2>
+            <sub>
+              - Julian Jaynes
+            </sub>
+          </section>
+
+          <section>
+            <iframe src="https://giphy.com/embed/xkyFiYs5TksyA" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/mrw-xkyFiYs5TksyA"></a></p>
+          </section>
+
+          <section>
+            Ergo, developing human-like machine intelligence is a matter of automating conversation (and introspection).
+          </section>
+
+        </section>
+
+        <section>
+          <h1>
+            Chatbots.
+          </h1>
+        </section>
+
+        <section>
+          <section>
+            Once upon a time, we tried to build a bot.
+          </section>
+
+          <section>
+            <h2>
+              Problem:
+            </h2>
+            MVC works great for view based interfaces but fails miserably as an Agent architecture.
+          </section>
+
+          <section>
+            <h2>Solution:</h2>
+            Bimodal Cognitive Handoff Architecture
+          </section>
+        </section>
+
+        <section>
+          <section>
+            But, why Elixir?
+          </section>
+
+          <section>
+            <h3>
+              You already know:
+            </h3>
+            <ul>
+              <li>
+                Performance,
+              </li>
+              <li>
+                Concurrency,
+              </li>
+              <li>
+                Developer Happiness,
+              </li>
+              <li>
+                Functional Programming
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            Also, domain-driven contexts seem perfectly suited to this problem.
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>What is Virtuoso?</h1>
+            Virtuoso is a framework for developing and orchestrating chatbots from a central repository.
+          </section>
+
+          <section>
+            How does it work?
+          </section>
+
+          <section>
+            It builds on the shoulders of giants.
+          </section>
+
+          <section>
+            <h2>
+              Command and Response.
+            </h2>
+          </section>
+
+          <section>
+            <h2>
+              Finite-state architectures.
+            </h2>
+          </section>
+
+          <section>
+            <h2>
+              Frame-Based Architecture
+            </h2>
+          </section>
+
+          <section>
+            <h2>
+              Natural Language Processing
+            </h2>
+          </section>
+
+          <section>
+            What we need is a framework that layers these ideas in a way that is easy and fun for developers!
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>
+              Thinking, Fast and Slow.
+            </h2>
+          </section>
+
+          <section>
+            Fast Thinking are cognitive processes that happen quickly and with no deliberation.
+          </section>
+
+          <section>
+            Slow Thinking are cognitive processes that require deliberation and concentration. For humans these are difficult, energy and time consuming processes.
+          </section>
+
+          <section>
+            Virtuoso uses this bimodal cognitive model as a routing system.
+          </section>
+          <section>
+
+            <pre>
+              <code>
+                defmodule ProjectName do
+                  @moduledoc """
+                  Your bot's description.
+                  """
+                  alias ProjectName.FastThinking
+                  alias ProjectName.SlowThinking
+                  alias ProjectName.Routine
+
+                  @recipient_ids [
+                    Application.get_env(:project_name, :fb_page_recipient_id)
+                  ]
+
+                  @doc """
+                  Getter for receiver_id
+                  """
+                  def recipient_ids(), do: @recipient_ids
+
+                  @doc """
+                  Main pipeline for the bot.
+                  """
+                  def respond_to(impression, conversation_state) do
+                    impression
+                    |> FastThinking.run()
+                    |> SlowThinking.run()
+                    |> Routine.runner(conversation_state)
+                  end
+                end
+              </code>
+            </pre>
+          </section>
+
+          <section>
+            <h1>
+              Routines
+            </h1>
+            <ul>
+              <li>
+                Satisfy intents.
+              </li>
+              <li>Actuators - do the thing</li>
+              <li>Independent - can refer to one another</li>
+            </ul>
+          </section>
+
+          <section>
+            <pre>
+              <code>
+                defmodule YoBot.Routine.Greeting do
+                  @moduledoc """
+                  YoBot's greeting routine.
+                  """
+
+                  def run() do
+                    "Yo."
+                  end
+                end
+              </code>
+            </pre>
+          </section>
+
+          <section>
+            From start to finish we maintain the conversation state in a `Virtuoso.Conversation` Genserver Module so that routines can refer to previous parts of an exchange and maintain a sense of context.
+          </section>
+
+          <section>
+            <pre>
+              <code>
+                defmodule YoBot.Routine.Greeting do
+                  @moduledoc """
+                  YoBot's greeting routine.
+                  """
+
+                  def run() do
+                    "Yo."
+                  end
+                end
+              </code>
+            </pre>
+          </section>
+
+          <section>
+            Client Modules - NLP & platform
+          </section>
+        </section>
+
+        <section>
+          Quick Recap:
+
+          The Virtuoso Framework imposes an architecture that consists of:
+          <ul>
+            <li>
+              Messaging Platform Clients
+            </li>
+            <li>
+              Executive Delegation
+            </li>
+            <li>
+              Cognitive Pattern Matching
+            </li>
+            <li>
+              NLP Analysis Clients
+            </li>
+            <li>
+              Routines
+            </li>
+            <li>
+              Conversation State
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <img src='images/virtuoso-architecture.jpg'/>
+        </section>
+
+        <section>
+          <section>
+            <h1>
+              How?
+            </h1>
+            Please, just get to the demo already!
+          </section>
+
+          <section>
+            We're building a FB Messenger Bot
+            Dependencies:
+            <ul>
+              <li>
+                Need a fb page and app (why?)
+              </li>
+              <li>
+                Need an Ngrok Tunnel
+              </li>
+              <li>
+                Need Phoenix
+              </li>
+            </ul>
+          </section>
+            <!--Generate a PHX project-->
+            <!--Add Virtuoso to deps-->
+            <!--Generate a client-->
+            <!--Add Fb details-->
+            <!--Generate a bot-->
+            <!--Test the bot-->
+            <!--Hello World-->
+          </section>
+
+          <section>
+            <section>
+              <h3>
+                Roadmap
+              </h3>
+            </section>
+            <section>
+              More Clients
+            </section>
+            <section>
+              Wizard of Oz Routines
+            </section>
+            <section>
+              Frames
+            </section>
+          </section>
+
+          <section>
+            <section>
+              <h3>
+                How can I help?
+              </h3>
+            </section>
+            <section>
+              <h2>
+                Stars and PRS
+              </h2>
+            </section>
+          </section>
+      </div>
+    </div>
+
+    <script src="js/marked.js"></script>
+    <script src="js/markdown.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+      Reveal.initialize();
+    </script>
+  </body>
+</html>
