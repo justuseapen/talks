@@ -32,7 +32,10 @@
             <p>
               Developer @
             </p>
-            <img src='images/sl-logo.jpg'/>
+            <img src='images/sl-logo.jpg' width="400px"/>
+            <p>
+              Organizer @ Baltimore.Ai
+            </p>
           </section>
 
           <section>
@@ -124,7 +127,7 @@
         <section>
           <section>
             <h1>What is Virtuoso?</h1>
-            Virtuoso is a framework for developing and orchestrating chatbots from a central repository.
+            Virtuoso is a (WIP) framework for developing and orchestrating chatbots from a central repository.
           </section>
 
           <section>
@@ -139,24 +142,28 @@
             <h2>
               Command and Response.
             </h2>
+            <p>Single layer of state</p>
           </section>
 
           <section>
             <h2>
               Finite-state architectures.
             </h2>
+            <p>Hierarchy of bimodal states i.e. a decision tree</p>
           </section>
 
           <section>
             <h2>
               Frame-Based Architecture
             </h2>
+            <p>Information-dependent state</p>
           </section>
 
           <section>
             <h2>
               Natural Language Processing
             </h2>
+            <p>Intelligently determine user intent and entities from text</p>
           </section>
 
           <section>
@@ -221,13 +228,9 @@
             <h1>
               Routines
             </h1>
-            <ul>
-              <li>
-                Satisfy intents.
-              </li>
-              <li>Actuators - do the thing</li>
-              <li>Independent - can refer to one another</li>
-            </ul>
+            <p>
+              Satisfy intents.
+            </p>
           </section>
 
           <section>
@@ -238,7 +241,7 @@
                   YoBot's greeting routine.
                   """
 
-                  def run() do
+                  def run(_impression) do
                     "Yo."
                   end
                 end
@@ -251,23 +254,7 @@
           </section>
 
           <section>
-            <pre>
-              <code>
-                defmodule YoBot.Routine.Greeting do
-                  @moduledoc """
-                  YoBot's greeting routine.
-                  """
-
-                  def run() do
-                    "Yo."
-                  end
-                end
-              </code>
-            </pre>
-          </section>
-
-          <section>
-            Client Modules - NLP & platform
+            Client Modules - NLP(wit) & platform (facebook messenger)
           </section>
         </section>
 
